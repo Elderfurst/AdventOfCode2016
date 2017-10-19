@@ -10,6 +10,8 @@ namespace AdventOfCode2016
     {
         static void Main(string[] args)
         {
+            var run = new Day1();
+            run.Run();
         }
     }
 }
