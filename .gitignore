@@ -1,3 +1,4 @@
-/Server/
-/sqlite3/
-/Debug/
+AdventOfCode2016/.vs/
+AdventOfCode2016/bin/Debug/
+AdventOfCode2016/obj/Debug/
+AdventOfCode2016/Properties/
