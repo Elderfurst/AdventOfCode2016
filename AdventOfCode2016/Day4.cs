@@ -35,7 +35,7 @@ namespace AdventOfCode2016
                     realRooms.Add(string.Join("-", roomAndSector));
                 }
             }
-            //Console.WriteLine(total);
+            Console.WriteLine(total);
         }
 
         private void PartTwo()
