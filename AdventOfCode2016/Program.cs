@@ -5,7 +5,7 @@ namespace AdventOfCode2016
     {
         public static void Main(string[] args)
         {
-            var run = new Day3();
+            var run = new Day4();
             run.Run();
         }
     }
