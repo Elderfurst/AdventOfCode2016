@@ -13,6 +13,7 @@ namespace AdventOfCode2016
         public void Run()
         {
             PartOne();
+            PartTwo();
         }
 
         private void PartOne()
@@ -21,6 +22,16 @@ namespace AdventOfCode2016
             foreach (var input in _input)
             {
                 count += ContainsAbba(input);
+            }
+            Console.WriteLine(count);
+        }
+
+        private void PartTwo()
+        {
+            var count = 0;
+            foreach (var input in _input)
+            {
+                count += ContainsAba(input);
             }
             Console.WriteLine(count);
         }
@@ -50,6 +61,11 @@ namespace AdventOfCode2016
                 }
             }
             return returnValue;
+        }
+
+        private static int ContainsAba(string input)
+        {
+            return 0;
         }
     }
 }
