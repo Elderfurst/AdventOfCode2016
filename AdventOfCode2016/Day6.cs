@@ -6,7 +6,7 @@ namespace AdventOfCode2016
 {
     public class Day6 : IRunnable
     {
-        string[] input = File.ReadAllText(@"C:\Temp\Day6Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
+        private readonly string[] _input = File.ReadAllText(@"C:\Temp\Day6Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
         public void Run()
         {
             PartOne();
@@ -16,9 +16,9 @@ namespace AdventOfCode2016
         private void PartOne()
         {
             var result = "";
-            for (var i = 0; i < input[0].Length; i++)
+            for (var i = 0; i < _input[0].Length; i++)
             {
-                result += input.Select(x => x[i]).GroupBy(x => x).Select(x => new {Char = x.Key, Count = x.Count()})
+                result += _input.Select(x => x[i]).GroupBy(x => x).Select(x => new {Char = x.Key, Count = x.Count()})
                     .OrderByDescending(x => x.Count).Take(1).First().Char;
             }
             Console.WriteLine(result);
@@ -27,9 +27,9 @@ namespace AdventOfCode2016
         private void PartTwo()
         {
             var result = "";
-            for (var i = 0; i < input[0].Length; i++)
+            for (var i = 0; i < _input[0].Length; i++)
             {
-                result += input.Select(x => x[i]).GroupBy(x => x).Select(x => new { Char = x.Key, Count = x.Count() })
+                result += _input.Select(x => x[i]).GroupBy(x => x).Select(x => new { Char = x.Key, Count = x.Count() })
                     .OrderBy(x => x.Count).Take(1).First().Char;
             }
             Console.WriteLine(result);
