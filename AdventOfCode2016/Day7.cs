@@ -65,6 +65,42 @@ namespace AdventOfCode2016
 
         private static int ContainsAba(string input)
         {
+            var abas = new List<string>();
+            var insideBrackets = false;
+            for (var i = 0; i < input.Length - 2; i++)
+            {
+                if (input[i] == '[')
+                {
+                    insideBrackets = true;
+                }
+                else if (input[i] == ']')
+                {
+                    insideBrackets = false;
+                }
+                if (input[i] == input[i + 2] && input[i + 1] != input[i] && !insideBrackets)
+                {
+                    abas.Add(input[i].ToString() + input[i + 1] + input[i + 2]);
+                }
+            }
+            insideBrackets = false;
+            for (var i = 0; i < input.Length - 2; i++)
+            {
+                if (input[i] == '[')
+                {
+                    insideBrackets = true;
+                }
+                else if (input[i] == ']')
+                {
+                    insideBrackets = false;
+                }
+                if (input[i] == input[i + 2] && input[i + 1] != input[i] && insideBrackets)
+                {
+                    if (abas.Contains(input[i + 1].ToString() + input[i] + input[i + 1]))
+                    {
+                        return 1;
+                    }
+                }
+            }
             return 0;
         }
     }
