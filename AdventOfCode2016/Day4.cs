@@ -17,7 +17,7 @@ namespace AdventOfCode2016
 
         private void PartOne()
         {
-            var input = File.ReadAllText(@"C:\Temp\Day4Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            var input = File.ReadAllText(@"Input\Day4Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
             var total = 0;
             foreach (var room in input)
             {

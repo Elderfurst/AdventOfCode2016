@@ -6,7 +6,7 @@ namespace AdventOfCode2016
 {
     public class Day6 : IRunnable
     {
-        private readonly string[] _input = File.ReadAllText(@"C:\Temp\Day6Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
+        private readonly string[] _input = File.ReadAllText(@"Input\Day6Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
         public void Run()
         {
             PartOne();

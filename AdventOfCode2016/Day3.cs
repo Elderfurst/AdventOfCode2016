@@ -9,7 +9,7 @@ namespace AdventOfCode2016
     {
         public void Run()
         {
-            var input = File.ReadAllText(@"C:\Temp\Day3Input.txt");
+            var input = File.ReadAllText(@"Input\Day3Input.txt");
             var triangles = input.Split(new string[] {"\r\n"}, StringSplitOptions.None)
                 .Select(x => x.Trim().Split().Where(y => !string.IsNullOrEmpty(y))).ToArray();
             var possible = 0;

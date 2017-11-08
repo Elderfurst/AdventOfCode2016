@@ -9,7 +9,7 @@ namespace AdventOfCode2016
 {
     public class Day7 : IRunnable
     {
-        private readonly string[] _input = File.ReadAllText(@"C:\Temp\Day7Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
+        private readonly string[] _input = File.ReadAllText(@"Input\Day7Input.txt").Split(new string[] { "\r\n" }, StringSplitOptions.None);
         public void Run()
         {
             PartOne();
