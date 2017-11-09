@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+
 
 namespace AdventOfCode2016
 {
     public class Day10 : IRunnable
     {
         private readonly string[] _input = File.ReadAllText(@"Input\Day10.txt").Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-        private Queue<Instruction> _instructionQueue = new Queue<Instruction>();
+        private readonly Queue<Instruction> _instructionQueue = new Queue<Instruction>();
         private readonly List<Bot> _bots = new List<Bot>();
         private readonly List<Output> _output = new List<Output>();
         public void Run()
@@ -50,19 +46,39 @@ namespace AdventOfCode2016
                     if (tokenizedLine[5] == "output")
                     {
                         instruction.Low = new Output(int.Parse(tokenizedLine[6]));
+                        var index = _output.IndexOf(new Output(int.Parse(tokenizedLine[6])));
+                        if (index == -1)
+                        {
+                            _output.Add(new Output(int.Parse(tokenizedLine[6])));
+                        }
                     }
                     else
                     {
                         instruction.Low = new Bot(int.Parse(tokenizedLine[6]));
+                        var index = _bots.IndexOf(new Bot(int.Parse(tokenizedLine[6])));
+                        if (index == -1)
+                        {
+                            _bots.Add(new Bot(int.Parse(tokenizedLine[6])));
+                        }
                     }
 
                     if (tokenizedLine[10] == "output")
                     {
                         instruction.High = new Output(int.Parse(tokenizedLine[11]));
+                        var index = _output.IndexOf(new Output(int.Parse(tokenizedLine[11])));
+                        if (index == -1)
+                        {
+                            _output.Add(new Output(int.Parse(tokenizedLine[11])));
+                        }
                     }
                     else
                     {
                         instruction.High = new Bot(int.Parse(tokenizedLine[11]));
+                        var index = _bots.IndexOf(new Bot(int.Parse(tokenizedLine[11])));
+                        if (index == -1)
+                        {
+                            _bots.Add(new Bot(int.Parse(tokenizedLine[11])));
+                        }
                     }
                     _instructionQueue.Enqueue(instruction);
                 }
@@ -106,7 +122,7 @@ namespace AdventOfCode2016
     internal class Output
     {
         public int Id;
-        public List<int> Microchips;
+        public List<int> Microchips = new List<int>();
 
         public Output(int id)
         {
@@ -144,39 +160,40 @@ namespace AdventOfCode2016
 
         public int GiveHigh()
         {
-            if (((First == 61) && (Second == 17)) || ((First == 17) && (Second == 61)))
+            if ((First == 61 && Second == 17) || (First == 17 && Second == 61))
+            //if ((First == 5 && Second == 2) || (First == 2 && Second == 5))
             {
                 Console.WriteLine(Id);
             }
+            int temp;
             if (First > Second)
             {
+                temp = First;
                 First = 0;
-                return First;
+                return temp;
             }
-            else
-            {
-                Second = 0;
-                return Second;
-            }
+            temp = Second;
+            Second = 0;
+            return temp;
         }
 
         public int GiveLow()
         {
-            if (((First == 61) && (Second == 17)) || ((First == 17) && (Second == 61)))
+            if ((First == 61 && Second == 17) || (First == 17 && Second == 61))
+            //if ((First == 5 && Second == 2) || (First == 2 && Second == 5))
             {
                 Console.WriteLine(Id);
             }
+            int temp;
             if (First < Second)
             {
+                temp = First;
                 First = 0;
-                return First;
+                return temp;
             }
-
-            else
-            {
-                Second = 0;
-                return Second;
-            }
+            temp = Second;
+            Second = 0;
+            return temp;
         }
 
         public void TakeNumber(int num)
