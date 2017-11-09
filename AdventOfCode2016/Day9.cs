@@ -37,12 +37,12 @@ namespace AdventOfCode2016
                     i += letterCount;
                 }
             }
-            Console.WriteLine(decompressed.Count(x => x != ' '));
+            Console.WriteLine(decompressed.Count());
         }
 
         private void PartTwo()
         {
-            
+            //Day 9 part 2 should use recursion to unpack the strings
         }
     }
 }
