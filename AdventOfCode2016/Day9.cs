@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AdventOfCode2016
 {
     public class Day9 : IRunnable
     {
+        private readonly string _input = File.ReadAllText(@"Input\Day9.txt");
         public void Run()
         {
             PartOne();
@@ -16,7 +19,25 @@ namespace AdventOfCode2016
 
         private void PartOne()
         {
-            
+            const string pattern = @"\(\d+x\d+\)";
+            var decompressed = "";
+            for (var i = 0; i < _input.Length; i++)
+            {
+                decompressed += _input[i];
+                var matches = Regex.Matches(decompressed, pattern);
+                if (matches.Count > 0)
+                {
+                    var letterCount = int.Parse(matches[0].Groups[0].ToString().Substring(0, matches[0].Groups[0].ToString().IndexOf("x", StringComparison.Ordinal)).Replace("(", ""));
+                    var repeatCount = int.Parse(matches[0].Groups[0].ToString().Substring(matches[0].Groups[0].ToString().IndexOf("x", StringComparison.Ordinal) + 1).Replace(")", ""));
+                    decompressed = decompressed.Replace(matches[0].Groups[0].ToString(), "");
+                    for (var j = 0; j < repeatCount; j++)
+                    {
+                        decompressed += _input.Substring(i + 1, letterCount).Replace("(", "*").Replace(")", "*");
+                    }
+                    i += letterCount;
+                }
+            }
+            Console.WriteLine(decompressed.Count(x => x != ' '));
         }
 
         private void PartTwo()
