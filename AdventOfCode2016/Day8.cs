@@ -1,9 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
 
 namespace AdventOfCode2016
 {

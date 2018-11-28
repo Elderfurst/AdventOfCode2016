@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 
-
 namespace AdventOfCode2016
 {
     public class Day3 : IRunnable
@@ -25,15 +24,6 @@ namespace AdventOfCode2016
                 }
             }
 
-/*            foreach (var currentTriangle in input.Split(new string[] {"\r\n"}, StringSplitOptions.None))
-            {
-                var triangle = currentTriangle.Trim().Split();
-                triangle = triangle.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-                if (int.Parse(triangle[0]) + int.Parse(triangle[1]) > int.Parse(triangle[2]) && int.Parse(triangle[1]) + int.Parse(triangle[2]) > int.Parse(triangle[0]) && int.Parse(triangle[0]) + int.Parse(triangle[2]) > int.Parse(triangle[1]))
-                {
-                    possible++;
-                }
-            }*/
             Console.WriteLine(possible);
         }
     }

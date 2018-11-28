@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-
 namespace AdventOfCode2016
 {
     public class Day9 : IRunnable

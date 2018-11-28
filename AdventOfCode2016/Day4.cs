@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-
 namespace AdventOfCode2016
 {
     public class Day4 : IRunnable
